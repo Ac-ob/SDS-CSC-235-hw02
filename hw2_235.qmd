@@ -1,0 +1,142 @@
+---
+title: "Exploratory analysis NY Data"
+author: "Amaya McGill"
+format: html
+editor: visual
+---
+
+## Exploratory analysis 
+
+```{r}
+#libraries
+library(tidyverse)
+library(broom)
+```
+
+```{r}
+#getting data
+
+park_response <- read_csv("~/SDS235/SDS235/Park_Response.csv")
+
+```
+
+## Summary stats 1
+
+-   Ordinal:
+
+    -   Age
+
+    -   Year
+
+-   Nominal:
+
+    -   Animal_condition
+
+    -   Final_Ranger_Action
+
+-   Numeric:
+
+    -   Duration_of_Response
+
+    -   num_of_Animals
+
+```{r}
+
+#summary stats
+
+park_stats<- park_response|>
+  select(c("Borough", "Species_Description", "Species_Status", "Animal_Condition", "Duration_of_Response", "Age", "num_of_Animals", "Year", "Final_Ranger_Action"))
+summary(park_response)
+
+
+```
+
+## Frequency plots 2
+
+```{r}
+
+
+year_plot <- ggplot(park_response, aes(x = factor(Year))) +
+  geom_bar(fill = "lightpink")
+age_plot <- ggplot(park_response, aes(x = factor(Age))) +
+  geom_bar(fill = "darkred")
+Animal_condition_plot <- ggplot(park_response, aes(x = factor(Animal_Condition))) +
+  geom_bar(fill = "lavender")
+Final_Ranger_Action_plot <- ggplot(park_response, aes(x = factor(Final_Ranger_Action))) +
+  geom_bar(fill = "black")
+Duration_of_Response_plot <- ggplot(park_response, aes(x = factor(Final_Ranger_Action))) +
+  geom_bar(fill = "magenta")
+num_animal_plot <- ggplot(park_response, aes(x = factor(num_of_Animals))) +
+  geom_bar(fill = "red")
+
+
+#Ordinal plots 
+year_plot
+age_plot
+
+#Nominal plots
+Animal_condition_plot
+Final_Ranger_Action_plot
+
+#numeric
+Duration_of_Response_plot
+num_animal_plot
+```
+
+## 
+
+## Correlation 3
+
+```{r}
+
+#does the number of animals affect duration of response?
+
+ggplot(park_response, aes(y=Duration_of_Response, x=num_of_Animals)) + geom_point()
+
+ggplot(park_response, aes(y=Duration_of_Response, x=num_of_Animals)) + geom_point()+ xlim(0,100)
+```
+
+```{r}
+
+#does the number of rehabilitations change across years?
+
+
+
+ggplot(park_response, aes(x = as_factor(Final_Ranger_Action), fill=Final_Ranger_Action=="Rehabilitator")) +
+  geom_bar()+
+    facet_wrap(~Year)
+
+
+```
+
+```{r}
+
+#does animal control get more calls for injure animals that are older?
+age_filt <- park_response|>
+  filter(Age==c("Adult","Juvenile","Infant"))
+
+ggplot(age_filt, aes(x = as_factor(Animal_Condition), fill=Age)) +
+  geom_bar()+
+    facet_wrap(~Age)
+
+```
+
+## Hypothesis 4
+
+-   Hypothesis 1:
+
+    -   independence: The duration of a call is independent from the number of animals involved in the call.
+
+    -   non-independence: The duration of a call is not independent from the number of animals involved in the call.
+
+-   Hypothesis 2:
+
+    -   Hnull: Number of rehabilitation has not changed across years.
+
+    -   Ha: Number of rehabilitations have increased with the years.
+
+-   Hypothesis 3:
+
+    -   Hnull: There is no significant difference between the number of injuries between Adult and infant animals.
+
+    -   Ha: Adult animals get injured more often than infant animals.
