@@ -42,4 +42,4 @@ _YES_ 1 pt: Browser compiles code with no errors
 
 YES__ 1 pt: Interactive components execute fully and consistently with no errors
 
-_NA_ Changelog: Completed `changelog.md` included with submission
+_YES_ Changelog: Completed `changelog.md` included with submission
