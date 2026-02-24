@@ -1,0 +1,14 @@
+
+.hide {
+  display: none;
+}
+    
+.myDIV:hover + .hide {
+  display: block;
+  color: black;
+}
+
+.highlight {
+  background: whitesmoke;
+}
+
