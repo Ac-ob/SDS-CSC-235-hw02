@@ -4,10 +4,7 @@ In order to receive a regrade on this submission you **must** fully answer the f
 
 ## 1. Clearly list all changes you made from your last submission to this submission.
 
-- I changed the structure of the webpage. Instead of linking multiple webpages I combined them and when users click the buttons they scroll to the section that they selected.
-- I added highlight to the selecting variables section with functions
-- I added functions to mouse over to the index.js
-- I tried making a function for the buttons, but I couldnt get it to scroll :c
+- I added the images folder to show my summary statistics!
 
 ## 2. Reflect on your experience prioritizing, working on, and completing this assignment. Moving forward, what changes will you make in these areas to work towards better first submissions of assignments? 
 - I feel like I got really stuck on small sections of the webpage that would have taken little time to fix if I went to office hours. Whenever I get stuck I will move on to another section until I can go to office hours to ask questions. 
