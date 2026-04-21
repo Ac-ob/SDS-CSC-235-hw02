@@ -15,7 +15,7 @@
 		 <h3>Author: Amaya McGill</h3>
 
 		 	<h2>Dataset information</h2>
-		 		<p>This data set highlights calls made to the Urban Park Rangers for assistance with incidents related to animals and wildlife in New York City. The data set was provided by the Department of Parks and Recreation (DPR). Each row is a response from the Urban Park Rangers. A bias that might be present is related to the Duration of response. In the variable description they do not specify what the amount of time spent responding is recorded on (minutes, hours). </p>
+		 		<p>This dataset contains calls made to the Urban Park Rangers for wildlife emergencies in New York City. The data was collected by the Department of Parks and Recreation (DPR). Each row is a response from the Urban Park Rangers. Bias  might arise due to the lack of specificity of the time unit used for the Duration_of_response variable. It is unclear what the time unit is, and different people can interpret it as different time units.  </p>
 
 		<div id=list> 
 			<h2> <br>Steps for Explanatory analysis are as follow (click on the images to learn more!): </h2>
@@ -26,7 +26,7 @@
 					</button> 
 				<li class="second">Selecting variables of interest</li>
 					<button type="button" onclick="location.href='#second'"> 
-						<img src="images/summary.png" width="200" height="150">
+						<img src="images/variables.png" width="200" height="150">
 					</button>
 				<li>Getting summary statistics for the variables</li>
 					<button type="button" onclick="location.href='#third'"> 
@@ -75,7 +75,7 @@
 			<p>Hover over the following paragraph to highlight the variables!
 
 		<div id="color" onmouseover="mouseOver()" onmouseout="mouseOut()">
-			<h2> <br>You can select any variable you want out of the dataset! For this analysis I decided to explore the following variables:</h2>
+			<h2> <br>You can select any variable of the dataset! I decided to explore the following variables:</h2>
 
 			
 				<h3>Ordinal Variables</h3>
@@ -111,25 +111,10 @@
 		<div > 
 			<h2> <br>Analysis in Rstudio</h2>
 				<ul>
-					<li><p>First we need to load our Libraries</p></li>
-					<img src="images/Libraries.png" width="400" height="100">
-				</ul>
-
+		
 				<ul>
-					<li><p>Load the dataset!</p></li>
-					<img src="images/load_data.png" width="400" height="100">
-
-				</ul>
-
-				<ul>
-					<li><p>Then after selecting our variables of interest we can use function <br> Summary() to get full summary statistics of all of the variables </p></li>
-					<img src="images/summary_statrstudio.png" width="400" height="100">
-
-				</ul>
-
-				<ul>
-					<li><p>This is what you get!</p></li>
-					<img src="images/summary_statsr.png" width="400" height="100">
+					<li><p> After selecting our variables of interest we can use function <br> Summary() to get  summary statistics for all of the variables </p></li>
+					<img src="images/summary_stats_r.png" width="400" height="100">
 
 				</ul>
 
@@ -217,10 +202,10 @@
 				<div class="hide"> <img src="images/duration_num.png" width="400" height="100"></div>
 			<div>
 				<ul>
-					<li>independence: The duration of a call is independent from the number of animals involved in the call.</li>
-					<li>non-independence: The duration of a call is not independent from the number of animals involved in the call.</li>
+					<li>independence: The duration of a call is independent from the number of animals injured  </li>
+					<li>non-independence: The duration of a call is dependent on the number of animals injured </li>
 				</ul>
-				<p> This hypothesis of independence was made because there doesnt seem to be a correlation in the graph. </p>
+				<p> We believe duration of a call and number of animals injured on the event are independent from each other based on our visual analysis of the scatterplot for these two variables. </p>
 			</div>
 
 		<div class="myDIV">
@@ -228,10 +213,10 @@
 				<div class="hide"><img src="images/year_range.png" width="400" height="100"></div>
 			<div>
 				<ul>
-					<li>Hnull: Number of rehabilitation has not changed across years.</li>
-					<li>Ha: Number of rehabilitations have significantly increased since 2018.</li>
+					<li>Hnull: The number of animals rehabilitated per year in NY has remained constant throught the years</li>
+					<li>Ha: The number of animals rehabilitated per year has significantly increased throught the years</li>
 				</ul>
-				<p> This hypothesis was made because there seems to be an increase of rehabilitations after 2018</p>
+				<p> We believe rehabilitations per year have significantly increased based on the steep increase of rehabilitations after 2018 </p>
 			</div>
 
 		<div class="myDIV">
@@ -241,10 +226,10 @@
 
 			<div>
 				<ul>
-					<li>Hnull: There is no significant difference between the number of injuries between Adult and infant animals.</li>
-					<li>Ha: Adult animals get injured more often than infant animals.</li>
+					<li>Hnull: The number of injuries reported in adult and infant animals are equal </li>
+					<li>Ha: The number of injuries among adult animals is higher than in infants </li>
 				</ul>
-				<p> This hypothesis was made because there seems to be a larger number of injuries among adult animals. </p>
+				<p> Based on our visual interpretation of the graph we believe adult animals are more prone to injury. </p>
 			</div>
 
 	<div>
